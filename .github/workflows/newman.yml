@@ -23,4 +23,4 @@ jobs:
         run: npm install -g newman
 
       - name: Run Newman collection
-        run: run: newman run "Practice - Claude.postman_collection.json" --environment "Restful Booker.postman_environment.json" --iteration-data bookings-data.csv
+        run: newman run "Practice - Claude.postman_collection.json" --environment "Restful Booker.postman_environment.json" --iteration-data bookings-data.csv
