@@ -88,7 +88,22 @@
               "// THIS is the chaining part — save the ID for the next request",
               "const body = pm.response.json();",
               "pm.collectionVariables.set(\"bookingId\", body.bookingid);",
-              "console.log(\"Saved bookingId:\", body.bookingid);"
+              "console.log(\"Saved bookingId:\", body.bookingid);",
+              "",
+              "pm.test(\"Firstname matches data file\", function () {",
+              "    const body = pm.response.json();",
+              "    pm.expect(body.booking.firstname).to.equal(pm.iterationData.get(\"firstname\"));",
+              "});",
+              "",
+              "pm.test(\"Lastname matches data file\", function () {",
+              "    const body = pm.response.json();",
+              "    pm.expect(body.booking.lastname).to.equal(pm.iterationData.get(\"lastname\"));",
+              "});",
+              "",
+              "pm.test(\"Totalprice matches data file\", function () {",
+              "    const body = pm.response.json();",
+              "    pm.expect(body.booking.totalprice).to.equal(Number(pm.iterationData.get(\"totalprice\")));",
+              "});"
             ],
             "type": "text/javascript",
             "packages": {},
@@ -112,7 +127,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"firstname\": \"James\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 150,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2026-01-01\",\n        \"checkout\": \"2026-01-07\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}",
+          "raw": "{\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"totalprice\": {{totalprice}},\n    \"depositpaid\": {{depositpaid}},\n    \"bookingdates\": {\n        \"checkin\": \"{{checkin}}\",\n        \"checkout\": \"{{checkout}}\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}",
           "options": {
             "raw": {
               "language": "json"

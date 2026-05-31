@@ -1,0 +1,6 @@
+firstname,lastname,totalprice,depositpaid,checkin,checkout
+James,Brown,150,true,2026-01-01,2026-01-07
+John,Smith,200,false,2026-02-01,2026-02-07
+Anna,Jones,50,true,2026-03-01,2026-03-07
+Maria,Garcia,999,true,2026-04-01,2026-04-07
+,,-1,invalid,bad-date,bad-date
